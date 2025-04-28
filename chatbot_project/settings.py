@@ -26,6 +26,7 @@ SECRET_KEY = "django-insecure-iecn=2622n34ogo9+pqs48csv+um--jjuym_f8#zg*m(%)gb-2
 DEBUG = False
 ALLOWED_HOSTS = ['portfolio-1-ecsa.onrender.com']
 
+SECURE_SSL_REDIRECT = True
 
 
 
