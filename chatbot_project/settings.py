@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-iecn=2622n34ogo9+pqs48csv+um--jjuym_f8#zg*m(%)gb-2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://portfolio-1-ecsa.onrender.com']
+ALLOWED_HOSTS = ['https://portfolio-1-ecsa.onrender.com', 'localhost']
+
 
 
 # Application definition
