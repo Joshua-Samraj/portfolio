@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua's Portfolio</title>
+    <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+    
+</head>
+<body>
+    <canvas id="wave-canvas"></canvas>
+    <div class="sidebar">
+        <h1>Joshua</h1>
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+    
+    <div class="main-content">
+        <header class="page-header">
+            <h2>My Portfolio</h2>
+            <p>Engineer | Developer | Problem Solver</p>
+        </header>
+        
+        <section id="about" class="card">
+            <h3>About Me</h3>
+            <div class="about-summary">
+                <p>Hello! I'm Joshua, an aspiring engineer with a strong passion for technology, innovation, and solving real-world problems.</p>
+            </div>
+        
+            <!-- Hidden details initially -->
+            
+                <img src="{% static 'image/my.jpg' %}" alt="Joshua's Photo" class="profile-photo">
+                <p>I specialize in Machine Learning, Web Development, and Real-Time Systems. 
+                   I love bringing smart ideas into action through code. Currently growing my skills, 
+                   exploring new technologies, and building projects that make a real-world impact!</p>
+                <p>In my free time, I enjoy tech blogging, tinkering with hardware projects, and reading about AI advancements.</p>
+            
+        </section>
+        
+            <!-- Skills Section -->
+            <section id="skills" class="card">
+                <h3>Skills</h3>
+                <ul>
+                    <li><strong>Programming Languages:</strong> Python (primary), familiar with JavaScript and C++ basics.</li>
+                    <li><strong>Frameworks:</strong> Django, Flask for web development; Streamlit and PyQt for building smart applications.</li>
+                    <li><strong>Machine Learning:</strong> Proficient in building and training models using CNN, YOLO, TensorFlow, and Scikit-learn.</li>
+                    <li><strong>Databases:</strong> Experienced in MongoDB (NoSQL), PostgreSQL, and SQLite for backend storage and data management.</li>
+                    <li><strong>Frontend:</strong> Skilled with HTML5, CSS3, TailwindCSS, and basic JavaScript for creating beautiful, responsive UIs.</li>
+                    <li><strong>Tools:</strong> Git, GitHub, VS Code, and familiarity with deployment on cloud platforms like Render and Railway.</li>
+                </ul>
+                
+                
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="card">
+                <h3>Projects</h3>
+                
+                <div class="project">
+                    <h4>Plant Disease Detection</h4>
+                    <p>Developed a real-time plant disease detection system specifically for tomato leaves using YOLO (You Only Look Once) models and Convolutional Neural Networks. 
+                    This project helps farmers identify diseases early, improving crop health and reducing losses. 
+                    Built with Python, OpenCV, and deep learning frameworks, it showcases my expertise in Computer Vision and AI-driven solutions.</p>
+                </div>
+                <div class="project">
+                    <h4>Customize Chat bot</h4>
+                    <p>Designed a chatbot that can be customized to answer specific questions or provide personalized recommendations. 
+                    Utilizing the Hugging Face Transformers library, I trained a chatbot on a dataset of customer queries and responses. 
+                    This project showcases my proficiency in natural language processing and machine learning. <span class="project-link"><a href="/chat" target="_blank" class = "btn" >>>>>>click this link to chat with me<<<< </a></span></p>
+                    
+                </div>
+
+                <div class="project">
+                    <h4>EV Health Monitoring Dashboard</h4>
+                    <p>Designed a real-time Electric Vehicle (EV) monitoring system that tracks battery health, motor temperature, and system alerts. 
+                    Using PyQt for the frontend and MongoDB for backend storage, this dashboard provides a modern interface for monitoring vehicle vitals, 
+                    emphasizing my ability to build connected and efficient hardware-software integrations.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Donation Platform</h4>
+                    <p>Built a Django-based web application for a charitable trust to facilitate online donations. 
+                    Features included donor management, PDF receipt generation, and a secure, responsive design. 
+                    This project strengthened my backend development skills and taught me the importance of building reliable, user-friendly platforms that can serve real-world communities.</p>
+                </div>
+                
+                
+
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="card expandable">
+                <h3>Contact Me</h3>
+                <p>If you're interested in collaborating, have a project idea, or just want to connect — I'd love to hear from you! 
+                Feel free to reach out through the channels below:</p>
+                <ul>
+                    <li><strong>Email:</strong> yourname@example.com</li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/yourgithub" target="_blank">yourgithub</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourlinkedin" target="_blank">yourlinkedin</a></li>
+                    <li><strong>Mail:</strong> <a href="mailto:j.joshuasamraj@gmail.com" target="_blank">j.joshuasamraj@gmail.com</a></li>
+                </ul>
+                
+   
+            </section>
+        </div>
+    </div>
+
+    
+    
+
+    <!-- Floating Chatbot Button -->
+    <a href="#" class="chatbot-btn" title="Chat with me!">
+        💬
+    </a>
+    
+
+
+
+
+    
+
+    <div class="chatbot-popup" id="chatbotPopup">
+        <!-- Canvas for wave background inside chatbot -->
+        {% comment %} <canvas id="wave-canvas"></canvas> {% endcomment %}
+        
+        <span id="chatbotClose" style="cursor:pointer;">&times;</span>
+        <div class="chat-container">
+            <h1>Personal Chatbot</h1>
+            <button id="clear-history-btn" class="clear-history-button">
+                Clear History
+            </button>
+            <div class="chat-box" id="chat-box">
+                <div id="typing-indicator" class="bot-message">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message here...">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+        
+        </div>
+    
+        <!-- Close Button -->
+        
+    </div>
+    
+    
+    
+    <!-- Scripts -->
+    <script src="{% static 'js/portfolio.js' %}"></script>
+    <script src="{% static 'js/wave.js' %}"></script>
+    <script src="{% static 'js/script.js' %}?v=123"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>
