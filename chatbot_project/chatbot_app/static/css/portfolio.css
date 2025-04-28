@@ -1,0 +1,529 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wave-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: #000000; /* light background color */
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color:rgba(0, 0, 0, 0);
+    width: 250px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.2);
+    backdrop-filter: blur(20px); /* Adjust the px value to increase/decrease blur */
+}
+
+.sidebar h1 {
+    color: #58a6ff;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #c9d1d9;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #58a6ff;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Page Header */
+.page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.page-header h2 {
+    font-size: 2.5rem;
+    color: #58a6ff;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Cards */
+.card {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 2rem;
+    backdrop-filter: blur(15px); /* Adjust the px value to increase/decrease blur */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: #58a6ff;
+}
+
+.card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.project {
+    margin-bottom: 1.5rem;
+}
+
+.project h4 {
+    color: #8b949e;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    font-size: 1rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: #161b22;
+    color: #8b949e;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+/* Scroll Animation */
+.card {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start with an upward shift */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.card.animate {
+    opacity: 1; /* Fully visible when in view */
+    transform: translateY(0); /* Reset transform */
+}
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+/* General Card Animation */
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+    gap: 2rem;
+}
+.card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Expandable Sections */
+.expandable {
+    overflow: hidden;
+    transition: max-height 1s ease, padding 0.5s ease;
+    max-height: 300px; /* Initial height */
+    padding-bottom: 1rem;
+}
+.expandable.expanded {
+    max-height: 1200px; /* Expand more */
+    padding-bottom: 2rem;
+}
+
+/* About / Skills / Projects / Contact extra details */
+.about-details,
+.skills-details,
+.projects-details,
+.contact-details {
+    opacity: 0;
+    /* transform: translateY(20px); */
+    transition: opacity 1s ease, transform 1s ease;
+    display: none;
+
+}
+.btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 500px;
+}
+
+
+/* Profile Photo Styling */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 1rem;
+    margin-left: 900px;
+    box-shadow: #3777bb;
+}
+
+.chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    line-height: 60px; /* vertically center the emoji */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* Remove underline for <a> */
+    z-index: 999; /* Always stay on top */
+}
+
+.chatbot-btn:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+/* Chatbot popup styling */
+.chatbot-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 90px; /* above the chat button */
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+/* Header of chatbot */
+.chatbot-header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Close button */
+#chatbotClose {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Body of chatbot */
+.chatbot-body {
+    padding: 15px;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+/* Responsive: Mobile view */
+@media (max-width: 600px) {
+    .chatbot-popup {
+        width: 90%;
+        right: 5%;
+        bottom: 80px;
+    }
+}
+
+
+/* Chatbot Popup Container */
+.chatbot-popup {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 90px; /* Positioned above the chat button */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    flex-direction: column;
+    padding: 10px;
+    backdrop-filter: blur(10px); /* Adjust the px value to increase/decrease blur */
+}
+
+
+/* Chatbot Popup Animation (Slide-in effect) */
+.chatbot-popup.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Chatbot Header */
+.chatbot-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#chatbotClose {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Close button hover effect */
+#chatbotClose:hover {
+    color: #f44336;
+}
+
+/* Chat Container */
+.chat-container {
+    /* margin-top: 30px;    Space to avoid overlapping with header */
+    padding: 15px;
+    height: 100%;
+    overflow-y: auto;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    border-radius: 25px;
+}
+
+/* Chat Header (Title) */
+.chat-container h1 {
+    background-color: #3777bb;
+    color: white;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 10px;
+}
+
+/* Clear History Button */
+.clear-history-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s;
+}
+
+.clear-history-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Chatbox */
+.chat-box {
+    height: 330px;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Message styles (user and bot messages) */
+.message {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 80%;
+    
+    word-wrap: break-word;
+    position: relative;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out;
+}
+
+.user-message {
+    background-color: #ffffff;
+    margin-left: auto;
+    color: #000000;
+    border-bottom-right-radius: 5px;
+}
+
+.bot-message {
+    background-color: #000000;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+/* Typing Indicator */
+#typing-indicator {
+    display: none;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background-color: #e5e5ea;
+    border-radius: 18px;
+    max-width: 60px;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #666;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: typingAnimation 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Input Area */
+.input-area {
+    display: flex;
+    padding: 10px;
+    background-color: #eee;
+    transition: all 0.2s ease-out;
+    min-height: 60px;
+    border-radius: 15px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    resize: none;
+    transition: height 0.2s ease-out;
+    max-height: 120px;
+}
+
+#send-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .chatbot-popup {
+        width: 90%;
+        right: 5%;
+        bottom: 80px;
+    }
+
+    .chat-container {
+        padding: 10px;
+    }
+
+    #send-button {
+        padding: 8px 16px;
+    }
+}
+
+
