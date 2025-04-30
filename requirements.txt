@@ -1,6 +1,8 @@
 asgiref==3.8.1
+backports.zoneinfo==0.2.1
 certifi==2025.4.26
 charset-normalizer==3.4.1
+dj-database-url==2.3.0
 Django==4.2.20
 gunicorn==23.0.0
 idna==3.10
@@ -12,3 +14,4 @@ sqlparse==0.5.3
 typing_extensions==4.13.2
 tzdata==2025.2
 urllib3==2.2.3
+whitenoise==6.7.0
